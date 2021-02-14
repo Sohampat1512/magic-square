@@ -1,1 +1,1 @@
-# magic-square
+# Magic-square
