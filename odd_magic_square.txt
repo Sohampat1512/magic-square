@@ -1,0 +1,39 @@
+magicsquare=i=j=n=None
+def make(n):
+    global magicsquare,i,j
+    magicsquare=[[0 for i in range(n)] for i in range(n)]
+    i=int(n/2)
+    j=n-1
+    magicsquare[i][j]=1
+    for p in range(2,n**2+1):
+        i=i-1
+        j=j+1
+        if i == -1 and j == n:
+            i = 0
+            j = n - 2
+        elif i==-1:
+            i=n-1
+        elif j==n:
+            j=0
+
+        if magicsquare[i][j]==0:
+            magicsquare[i][j]=p
+        else:
+            i=i+1
+            j=j-2
+            magicsquare[i][j] = p
+    show()
+
+def show():
+    for x in magicsquare:
+        for y in x:
+            print(y,end=' ')
+        print()
+
+def main():
+    global n
+    n=int(input("enter a number(only valid for odd magic squares)"))
+    make(n)
+
+main()
+
